@@ -1,0 +1,55 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foods</title>
+</head>
+<body>
+    <div>
+        <h1>Listed food</h1>
+    </div>
+    <div>
+        <% food.forEach((f) => { %>
+            <div>
+                <img src="<%= f.image %>" />
+                <h3><%= f.name %></h3>
+                <p><%= f.description %></p>
+                <p><%= f.price%></p>
+            </div>
+        <% }) %> 
+
+    </div>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foods</title>
+</head>
+<body>
+    <div>
+        <h1>Listed Food</h1>
+    </div>
+
+    <div>
+        <% food.forEach((f) => { %>
+            <div style="border: 1px solid #000; padding: 20px; margin-bottom: 20px;">
+                <img src="<%= f.image %>" alt="Image of <%= f.name %>" width="100" height="100" />
+                <h3><%= f.name %></h3>
+                <p>Description: <%= f.description %></p>
+                <p>Price: $<%= f.price %></p>
+
+                <!-- Edit button -->
+                <a href="/food/updatefood/<%= f._id %>" style="background-color: #4CAF50; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">Edit</a>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

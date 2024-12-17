@@ -1,0 +1,63 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div>
+    <h1>
+        update food
+    </h1>
+</div>
+<body>
+    <div>
+        <form action="" method="post">
+            <input type="text" name="name" placeholder="name">
+            <input type="text" name="description" placeholder="description">
+            <input type="text" name="category" placeholder="category">
+            <input type="number" name="price" placeholder="price">
+            <input type="text" name="image" placeholder="image">
+            
+        </form>
+    </div>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Food</title>
+</head>
+<body>
+    <div>
+        <h1>Update Food</h1>
+    </div>
+
+    <div>
+        <!-- Use EJS to pre-fill the form inputs with existing data -->
+        <form action="/food/updatefood" method="post">
+            <label for="name">Name:</label>
+            <input type="text" name="name" placeholder="name" >
+
+            <label for="description">Description:</label>
+            <input type="text" name="description" placeholder="description" >
+
+            <label for="category">Category:</label>
+            <input type="text" name="category" placeholder="category" >
+
+            <label for="price">Price:</label>
+            <input type="number" name="price" placeholder="price" >
+
+            <label for="image">Image URL:</label>
+            <input type="text" name="image" placeholder="image" >
+            
+            <input type="submit" value="Update Food">
+        </form>
+    </div>
+</body>
+</html>

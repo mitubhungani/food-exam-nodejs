@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foods</title>
+</head>
+<body>
+    <div>
+        <h1>Home</h1>
+    </div>
+    <div>
+        <% food.forEach((f) => { %>
+            <div>
+                <img src="<%= f.image %>" />
+                <h3><%= f.name %></h3>
+                <p><%= f.description %></p>
+                <p><%= f.price%></p>
+            </div>
+        <% }) %> <!-- Fixed the closing tag here -->
+
+    </div>
+</body>
+</html>
