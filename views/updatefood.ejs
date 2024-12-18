@@ -40,18 +40,18 @@
 
     <div>
         <!-- Use EJS to pre-fill the form inputs with existing data -->
-        <form action="/food/updatefood" method="post">
+        <form action="/food/updatefood/<%= food._id %>" method="post">
             <label for="name">Name:</label>
             <input type="text" name="name" placeholder="name" >
 
-            <label for="description">Description:</label>
-            <input type="text" name="description" placeholder="description" >
+            <label for="price">Price:</label>
+            <input type="number" name="price" placeholder="price" >
 
             <label for="category">Category:</label>
             <input type="text" name="category" placeholder="category" >
 
-            <label for="price">Price:</label>
-            <input type="number" name="price" placeholder="price" >
+            <label for="description">Description:</label>
+            <input type="text" name="description" placeholder="description" >
 
             <label for="image">Image URL:</label>
             <input type="text" name="image" placeholder="image" >

@@ -52,7 +52,7 @@ const login = async (req, res) => {
       return res.status(401).json({ error: "Invalid username or password" });
     }
     res.cookie("id", isExist.id);
-    return res.redirect("/food");
+    return res.redirect("/foods");
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }

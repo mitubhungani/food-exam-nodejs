@@ -49,8 +49,8 @@ const updateFood = async (req,res)=>{
     try {
         let { id } = req.params;
         let food = await Food.findByIdAndUpdate(id, req.body, {new: true})
-        res.status(201).send(food)
-        res.render('listedfood');
+        // res.status(201).send(food)
+        res.redirect('/food/listed');
     } catch (error) {
         res.status(500).send({ error: "Server Error" });
     }
@@ -71,11 +71,18 @@ const foodAddPage= async (req,res)=>{
 }
 
 const foodEditPage = async (req,res)=>{
-    // let { id } = req.params;
-    // const food   = await Food.findById(id);
-    res.render('updatefood')
+    let { id } = req.params;
+    const food   = await Food.findById(id);
+    console.log('food',food);
+    res.render('updatefood',{food})
+    console.log('food-updated',food);
+    
 }
 
+const listedProduct =async (req,res)=>{
+    let food = await Food.find()
+    res.render('listedfood',{food})
+}
 
 module.exports = {
     getFood,
@@ -84,5 +91,6 @@ module.exports = {
     updateFood,
     deleteFood,
     foodAddPage,
-    foodEditPage
+    foodEditPage,
+    listedProduct
 }
