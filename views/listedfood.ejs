@@ -41,7 +41,7 @@
     <div>
         <% food.forEach((f) => { %>
             <div style="border: 1px solid #000; padding: 20px; margin-bottom: 20px;">
-                <img src="<%= f.image %>" alt="Image of <%= f.name %>" width="100" height="100" />
+                <img src="http://localhost:8090/<%= f.image ? f.image : 'default.jpg' %>" alt="Image of <%= f.name %>" width="100" height="100" />
                 <h3><%= f.name %></h3>
                 <p>Description: <%= f.description %></p>
                 <p>Price: $<%= f.price %></p>

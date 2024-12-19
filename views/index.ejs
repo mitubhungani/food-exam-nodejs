@@ -12,13 +12,13 @@
     <div>
         <% food.forEach((f) => { %>
             <div>
-                <img src="<%= f.image %>" />
+                <img src="http://localhost:8090/<%= f.image ? f.image : 'default.jpg' %>" alt="User Image" />
                 <h3><%= f.name %></h3>
                 <p><%= f.description %></p>
-                <p><%= f.price%></p>
+                <p><%= f.price %></p>
             </div>
-        <% }) %> <!-- Fixed the closing tag here -->
-
+        <% }) %> 
     </div>
 </body>
+
 </html>

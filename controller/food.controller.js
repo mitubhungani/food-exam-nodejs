@@ -22,7 +22,15 @@ const getFoodById = async (req,res,)=>{
 
 const createFood = async (req,res)=>{
     try {
-        let {name, price,category,description,image} =req.body
+
+//         console.log("request",req.file);
+//   if(req.file){
+//     req.body.img = req.file.path;
+//   }
+
+let image = req?.file?.path || null
+
+        let {name, price,category,description} =req.body
 
         let {id} = req.cookies;
 
@@ -38,6 +46,8 @@ const createFood = async (req,res)=>{
             image,
             addedBy: user.username
         })
+        console.log('newfood',newFood);
+        
         await newFood.save()
         res.status(201).json({food:newFood})
     } catch (error) {
@@ -47,10 +57,12 @@ const createFood = async (req,res)=>{
 
 const updateFood = async (req,res)=>{
     try {
+        let image = req?.file?.path || null
         let { id } = req.params;
+        req.body.image = image
         let food = await Food.findByIdAndUpdate(id, req.body, {new: true})
-        // res.status(201).send(food)
-        res.redirect('/food/listed');
+        res.status(201).send(food)
+        // res.redirect('/food/listed');
     } catch (error) {
         res.status(500).send({ error: "Server Error" });
     }

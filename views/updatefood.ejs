@@ -40,7 +40,7 @@
 
     <div>
         <!-- Use EJS to pre-fill the form inputs with existing data -->
-        <form action="/food/updatefood/<%= food._id %>" method="post">
+        <form action="/food/updatefood/<%= food._id %>" method="post" enctype="multipart/form-data">
             <label for="name">Name:</label>
             <input type="text" name="name" placeholder="name" >
 
@@ -54,7 +54,7 @@
             <input type="text" name="description" placeholder="description" >
 
             <label for="image">Image URL:</label>
-            <input type="text" name="image" placeholder="image" >
+            <input type="file" name="image" placeholder="image" >
             
             <input type="submit" value="Update Food">
         </form>

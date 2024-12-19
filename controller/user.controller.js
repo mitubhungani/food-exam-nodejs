@@ -1,4 +1,5 @@
 const User = require("../model/user.model");
+const bcrypt = require("bcrypt");
 
 const getUser = async (req, res) => {
   try {
@@ -30,6 +31,9 @@ const createUser = async (req, res) => {
           if (isExist) {
             return res.status(400).json({ error: "Email already exists" });
           } else {
+
+            let hash = await bcrypt.hash(password,10)
+            req.body.password = hash
             let user = await User.create(req.body);
             res.status(201).send(user);
           }
@@ -48,7 +52,8 @@ const login = async (req, res) => {
     if (!isExist) {
       return res.status(401).json({ error: "Invalid username or password" });
     }
-    if (isExist.password != password) {
+    const isMatch = await bcrypt.compare(password,isExist.password)
+    if (!isMatch) {
       return res.status(401).json({ error: "Invalid username or password" });
     }
     res.cookie("id", isExist.id);

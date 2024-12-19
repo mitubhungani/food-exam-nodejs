@@ -10,12 +10,12 @@
         <h1>Add Food</h1>
     </div>
     <div>
-        <form action="/food/addfood" method="post">
+        <form action="/food/addfood" method="post" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="name">
             <input type="number" name="price" placeholder="price">
             <input type="text" name="category" placeholder="category">
             <input type="text" name="description" placeholder="description">
-            <input type="text" name="image" placeholder="image">
+            <input type="file" name="image" placeholder="image">
             <input type="submit">
         </form>
     </div>
